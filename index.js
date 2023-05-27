@@ -58,4 +58,4 @@ app.delete('/password/delete/:id', (req, res) => {
 
 
 
-app.listen(3000, () => console.log('API REST foi iniciado em 3000'))
+app.listen(3500, () => console.log('API REST foi iniciado em 3500'))
