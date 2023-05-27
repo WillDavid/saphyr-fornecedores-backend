@@ -12,8 +12,7 @@ admin.initializeApp({
   credential: admin.credential.cert("serviceAccountKey.json")
 });
 
-app.get('/listOfPasswords', (request, res) => {
-    console.log('Get List of Passwords')
+app.get('/listOfPasswords', (req, res) => {
     admin.firestore()
         .collection('passwords')
         .get()
@@ -24,6 +23,19 @@ app.get('/listOfPasswords', (request, res) => {
             }))
 
             res.json(passwords)
+        })
+})
+
+app.get('/password/:id', (req, res) => {
+    console.log(req.params.id)
+    admin.firestore()
+        .collection('passwords')
+        .doc(req.params.id)
+        .get()
+        .then( (snapshot) => {
+            console.log(snapshot);
+
+            res.json(snapshot.data())
         })
 })
 
