@@ -69,7 +69,4 @@ app.delete('/password/delete/:id', (req, res) => {
         .delete()
     res.status(200).send("Senha deletada com sucesso!")
 })
-
-
-
 app.listen(3500, () => console.log('API REST foi iniciado em 3500'))
