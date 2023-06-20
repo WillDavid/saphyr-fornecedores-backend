@@ -1,10 +1,11 @@
-// // import authModels from '../models/authModels.js'
+import authModels from '../models/authModels.js'
 
 
-// const login = async (req, res) => {
-//     const x = await authModels.signin()
-// }
+const login = async (req, res) => {
+    await authModels.loginModel(req)
+    return res.status(200).send('Logado com Sucesso!')
+}
+
+export default {login}
 
 
-
-// export default {login}

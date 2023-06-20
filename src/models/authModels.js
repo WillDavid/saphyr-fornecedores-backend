@@ -1,13 +1,16 @@
-// import {
-//     signInWithEmailAndPassword, getAuth
-// } from "firebase/auth";
-
-// const auth = getAuth(app)
-
-// const signin = (email, password) => signInWithEmailAndPassword(auth, 'aaaaaa', 'bbbbb')
+import admin from 'firebase-admin'
 
 
-// export default {
-//     signin
-// }
 
+const loginModel = async (req, res) => {
+    const {email, password} = req.body
+    await admin.auth().createUser({
+        email: email,
+        password: password,
+    })
+}
+
+
+export default {
+    loginModel
+}
